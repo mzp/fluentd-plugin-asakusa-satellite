@@ -89,7 +89,7 @@ class AsakusaSatelliteInput < Fluent::Input
   def on_message(message)
     update_since_id message['id']
     Fluent::Engine.emit(@tag,
-                        Time.parse(message['created_at']), {
+                        Time.parse(message['created_at']).to_i, {
                           :id   => message['id'],
                           :body => message['body'],
                           :name => message['name'],
