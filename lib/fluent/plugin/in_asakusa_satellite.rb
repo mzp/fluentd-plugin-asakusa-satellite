@@ -91,11 +91,11 @@ class AsakusaSatelliteInput < Fluent::Input
     p message['created_at']
     Fluent::Engine.emit(@tag,
                         Time.parse(message['created_at'] + " UTC").to_i, {
-                          :id   => message['id'],
-                          :body => message['body'],
-                          :name => message['name'],
-                          :screen_name => message['screen_name'],
-                          :room => message['room']['name']
+                          "id"   => message['id'],
+                          "body" => message['body'],
+                          "name" => message['name'],
+                          "screen_name" => message['screen_name'],
+                          "room" => message['room']['name']
                         })
   end
 
