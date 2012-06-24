@@ -39,7 +39,7 @@ class AsakusaSatelliteInput < Fluent::Input
     end
 
     def on_request_complete
-      $log.info "fetch as data"
+      $log.debug "fetch as data"
       JSON.parse(@json).each(&@action)
     end
 
